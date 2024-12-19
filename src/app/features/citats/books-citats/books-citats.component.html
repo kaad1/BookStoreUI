@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="mt-3">
+    Quotes List 
+  </h1>
+
+  <div class="d-flex justify-content-end mt-3">
+    <a [routerLink]="['/user/citats/add']"  class="btn btn-dark" > <i class="bi bi-plus-circle"></i>Add Quotes</a>
+  </div>
+
+  <ng-container *ngIf="citatsPosts$ | async  as citatsPosts">
+     <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Quote</th>
+                <th>Author</th>
+                <th>Book</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let citatsPost of citatsPosts">
+                <td>{{citatsPost.citat}}</td>
+                <td>{{citatsPost.author}}</td>
+                <td>{{citatsPost.book}}</td>
+            </tr>
+        </tbody>
+     </table>
+  </ng-container>
+</div>

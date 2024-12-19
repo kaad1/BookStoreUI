@@ -1,0 +1,41 @@
+<div class="container">
+   <div class="my-5">
+    <div class="row align-items-strech">
+         <ng-container *ngIf="blogs$ | async as blogs">
+            <div class="col-12 col-md-4  mb-3 " *ngFor="let blog of blogs">
+               <div class="card h-100">
+                 <img [src]="blog.featuredImageUrl" class="card-img-top"
+                 [alt]="blog.title">
+
+                 <h4 class="mt-3 font-weight-bold text-center ">
+                 
+                     Author:&nbsp;{{blog.author}}
+                 
+                 </h4>
+
+                 <div class="card-body d-flex flex-column">
+                   <h5 class="card-title">
+                      {{blog.title}}
+                   </h5>
+                  <p class="card-text"> 
+                      {{blog.shortDescription}}
+                  </p>
+                  <div class=" d-flex justify-content-betwen mt-5">
+                    
+                    
+                        Created Date: {{blog.publishedDate | date:'dd-MM-yyyy'}}
+                   
+                 </div>
+                 <div *ngIf="blog.categories" class="mt-4">
+                    <span class="badge bg-secondary me-2" *ngFor="let category of blog.categories">
+                       {{category.name}}
+                    </span>
+                 </div>
+                 </div>
+               </div>
+            </div>
+         </ng-container>
+    </div>
+   </div>
+</div>
+

@@ -1,0 +1,48 @@
+<div class="container">
+  
+    <h1 class="mt-3">
+    Book List
+  </h1>
+
+  <div class="d-flex justify-content-end mt-3">
+    <a [routerLink]="['/user/bookposts/add']"  class="btn btn-dark" > <i class="bi bi-plus-circle"></i>Add Book</a>
+  </div>
+
+
+  <ng-container *ngIf="bookPosts$ |async as bookPosts">
+    <div class="table-responsive">
+     <table class="table table-bordered  table-striped table-hover mt-3 ">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Short Description</th>
+          <th>Featured ImgUrl</th>
+          <th>Url Handle</th>
+          <th>Publishing Date</th>
+          <th>Categories</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bookPost of bookPosts">
+          <td>{{bookPost.title}}</td>
+          <td>{{bookPost.author}}</td>
+          <td>{{bookPost.shortDescription}}</td>
+          <td>{{bookPost.featuredImageUrl}}</td>
+          <td>{{bookPost.urlHandle}}</td>
+          <td>{{bookPost.publishedDate}}</td>
+          <td >
+            <span *ngFor="let category of bookPost.categories">
+              <span class="badge text-bg-secondary me-2">{{category.name}}</span>
+            </span>
+          </td>
+          <td><a class="btn btn-info" [routerLink]="['/user/bookposts', bookPost.id]"> <i class="bi bi-pencil-fill"></i>Edit</a></td>
+        </tr>
+      </tbody>
+     </table>
+
+    </div>
+  </ng-container>
+
+</div>

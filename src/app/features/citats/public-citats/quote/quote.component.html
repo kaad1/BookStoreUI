@@ -1,0 +1,14 @@
+
+<div class="container mt-4" *ngIf="citats$ | async as citats">
+    <h1 class="text-center mt-4 mb-4">Bookmarked Quotes</h1>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let citat of citats">
+        <blockquote class="blockquote mb-0">
+          <p>{{ citat.citat}}</p>
+          <footer class="blockquote-footer">
+            {{ citat.author }} in <cite title="Source Title">{{citat.book}}</cite>
+          </footer>
+        </blockquote>
+      </li>
+    </ul>
+  </div>

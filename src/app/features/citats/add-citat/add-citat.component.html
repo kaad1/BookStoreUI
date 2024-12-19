@@ -1,0 +1,35 @@
+<div class="container">
+   <h3 class="mt-3">Favourite Quote From a Book</h3>
+
+  <form #gorm="ngForm" (ngSubmit)="OnSubmitForm()">
+     <div class="mt-2">
+          <div class="mt-3">
+             <label for="quote" class="form-label">Quote</label>
+             <textarea name="quote" id="quote" class="form-control"
+             [(ngModel)]="model.citat">
+         
+             </textarea>
+          </div>
+
+          <div class="mt-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text"  id="author"
+             name="author" class="form-control"
+             [(ngModel)]="model.author">
+         </div>
+
+         <div class="mt-3">
+            <label for="book" class="form-label">Book</label>
+            <input type="text"  id="book"
+             name="book" class="form-control"
+             [(ngModel)]="model.book">
+         </div>
+
+         <div class="mt-3">
+            <button type="submit" class="btn btn-dark">
+                 Save
+            </button>
+           </div>
+     </div>
+  </form>
+</div>
